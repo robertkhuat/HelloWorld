@@ -57,6 +57,3 @@ async function readValidator(): Promise<SpendingValidator> {
     script: validator.compiledCode, // giữ nguyên chuỗi hex CBOR
   };
 }
-
-// Cach doc inline datum ntn?
-//
