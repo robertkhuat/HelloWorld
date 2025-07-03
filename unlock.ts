@@ -12,6 +12,7 @@ import {
 import * as cbor from "https://deno.land/x/cbor@v1.4.1/index.js"; // chua ro import nay co can thiet khong
 import "jsr:@std/dotenv/load"; // chua rong import nay co can thiet khong
 
+//Khai bao bien
 const MNEMONIC = Deno.env.get("MNEMONIC");
 const BLOCKFROST_ID = Deno.env.get("BLOCKFROST_ID");
 const BLOCKFROST_NETWORK = Deno.env.get("BLOCKFROST_NETWORK");
@@ -29,20 +30,22 @@ console.log("Contract Address: " + contractAddress);
 const redeemer = Data.to(new Constr(0, [fromText("Hello, World!")]));
 const utxos = await lucid.utxosAt(contractAddress);
 const utxo = utxos.find((u) => u.assets.lovelace === 2900000n);
+console.log(utxo);
 if (!utxo) {
   throw new Error("No UTXO found with 2900000 Lovelace");
 }
 
 const address = await lucid.wallet.address();
-console.log("Address: " + address);
-console.log("UTXO: " + utxo);
+
 const paymentHash = Addresses.inspect(address).payment?.hash;
 console.log("Redeemer: " + redeemer);
-
-// Giao dich mo khoa
+console.log(utxos);
+const referenceScriptUtxo = utxos.find((u) => u.scriptRef !== undefined);
+console.log(referenceScriptUtxo);
 
 const tx = await lucid
   .newTx()
+  // .readFrom([referenceScriptUtxo])
   .collectFrom([utxo], redeemer)
   .attachScript(validator)
   .addSigner(paymentHash)

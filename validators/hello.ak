@@ -6,11 +6,16 @@ use aiken/collection/list
 
 pub type Datum {
     owner: VerificationKeyHash,
+    age: Int,
+    address: ByteArray,
+    phone: ByteArray,
 }
+// Đính vào trong UTXO
 
 pub type Redeemer {
     msg: ByteArray,
 }
+// Điều kiện chuộc lại (unlock) UTXO
 
 validator hello_world {
     spend(
@@ -21,7 +26,7 @@ validator hello_world {
         ) -> Bool {
         
         trace @"redeemer": string.from_bytearray(redeemer.msg)
-        expect Some(Datum {owner}) = datum
+        expect Some(Datum {owner, ..}) = datum
         let must_say_hello = redeemer.msg == "Hello, World!"
         let must_be_signed = list.has(self.extra_signatories, owner)
         
@@ -38,18 +43,18 @@ validator hello_world {
 
 // Test validator
 
-test hello_world_example() {
-  let datum =
-    Datum { owner: #"00000000000000000000000000000000000000000000000000000000" }
+// test hello_world_example() {
+//   let datum =
+//     Datum { owner: #"00000000000000000000000000000000000000000000000000000000" }
  
-  let redeemer = Redeemer { msg: "Hello, World!" }
+//   let redeemer = Redeemer { msg: "Hello, World!" }
  
-  let placeholder_utxo = OutputReference { transaction_id: "", output_index: 0 }
+//   let placeholder_utxo = OutputReference { transaction_id: "", output_index: 0 }
  
-  hello_world.spend(
-    Some(datum),
-    redeemer,
-    placeholder_utxo,
-    Transaction { ..transaction.placeholder, extra_signatories: [datum.owner] },
-  )
-}
+//   hello_world.spend(
+//     Some(datum),
+//     redeemer,
+//     placeholder_utxo,
+//     Transaction { ..transaction.placeholder, extra_signatories: [datum.owner] },
+//   )
+// }

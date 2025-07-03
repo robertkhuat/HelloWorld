@@ -29,8 +29,22 @@ if (!paymentHash) {
   throw new Error("Failed to extract payment hash from address");
 }
 
+const Datum = Data.Object({
+  owner: Data.Bytes(),
+  age: Data.Integer(),
+  address: Data.Bytes(),
+  phone: Data.Bytes(),
+});
+
 const validator = await readValidator();
-const datumInline = Data.to(new Constr(0, [paymentHash]));
+const datumInline = Data.to(
+  new Constr(0, [
+    paymentHash,
+    BigInt(23),
+    fromText("Ha Noi"),
+    fromText("0123456789"),
+  ])
+);
 const contractAddress = lucid.newScript(validator).toAddress();
 
 console.log("Contract Address: " + contractAddress);

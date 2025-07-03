@@ -41,6 +41,9 @@
     "ByteArray": {
       "dataType": "bytes"
     },
+    "Int": {
+      "dataType": "integer"
+    },
     "VerificationKeyHash": {
       "title": "VerificationKeyHash",
       "dataType": "bytes"
@@ -56,6 +59,18 @@
             {
               "title": "owner",
               "$ref": "#/definitions/VerificationKeyHash"
+            },
+            {
+              "title": "age",
+              "$ref": "#/definitions/Int"
+            },
+            {
+              "title": "address",
+              "$ref": "#/definitions/ByteArray"
+            },
+            {
+              "title": "phone",
+              "$ref": "#/definitions/ByteArray"
             }
           ]
         }

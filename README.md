@@ -67,6 +67,11 @@ Find more on the [Aiken's user manual](https://aiken-lang.org).
 
 # AikenAwesome
 
+1. Hiểu đúng về Datum, Redeemer, Script, ScriptContext
+2. Hiểu đúng luồng hoạt động của smart contract
+3. Hiểu đúng về handling time
+4. Review lại code đã làm (bài helloworld, và vesting), và mô tả chi tiết.
+
 **Questions and Answers**
 
 1. Cach doc inline datum ntn?
@@ -102,3 +107,9 @@ Find more on the [Aiken's user manual](https://aiken-lang.org).
 Sử dụng .collectFrom([utxo], redeemer) để lấy UTXO ra khỏi contract.
 Đính kèm script và add signer nếu cần.
 Ký và submit giao dịch lên blockchain.
+
+scriptRef:
+Khánh có 1 UTXO, tạo scriptref , ông chi tiêu lại UTXO đó. Ngày xưa thay vì tôi đọc compileCode của Validator.
+Nhưng tôi không đọc từ đó nữa, mà sử dụng UTXO từ scriptref để chi tiêu.
+
+Nó lưu
