@@ -103,7 +103,6 @@ ScriptContext:
    Tạo địa chỉ hợp đồng thông minh từ validator.
    B3: Tạo redeemer phù hợp với logic của smart contract.
    Tạo redeemer với thông điệp "Hello, World!" (phù hợp với logic của smc)
-
    B4: Lấy danh sách UTXO tại địa chỉ contract, chọn UTXO muốn unlock (thường dựa vào số lượng ADA hoặc datum).
    Lấy tất cả UTXO tại địa chỉ hợp đồng.
    Tìm UTXO có đúng số lượng ADA cần unlock.
