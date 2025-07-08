@@ -43,19 +43,19 @@ validator hello_world {
         fail
     }
 }
+```
 
-
-# AikenAwesome
+# Contents
 
 1. Hiểu đúng về Datum, Redeemer, Script, ScriptContext
 2. Hiểu đúng luồng hoạt động của smart contract
 3. Hiểu đúng về handling time
 4. Review lại code đã làm (bài helloworld, và vesting), và mô tả chi tiết.
+   => Giải thích:
 
-
-1.
 Datum là dữ liệu sẽ được đính kèm vào UTXO khi lock.
 Gồm các trường:
+
 - owner: Hash của public key của chủ sở hữu UTXO
 - age, address, phone: Thông tin phụ
 
@@ -64,15 +64,14 @@ Redeemer là dữ liệu được cung cấp khi muốn mở khoá (unlock) UTXO
 Script:
 
 ScriptRef:
+
 - Lưu trữ mã byte của script
 
 ScriptContext:
+
 - Gồm các thông tin về transaction, input, output, ...
 
 **Questions and Answers**
-
-1. Cach doc inline datum ntn?
-   //
 
 2. Payment hash
    // Ý nghĩa chi tiết cua payment hash:
@@ -84,11 +83,15 @@ ScriptContext:
 // Payment hash thường được dùng làm datum khi gửi ADA vào smart contract, giúp xác định ai là chủ sở hữu hoặc ai có quyền unlock sau này.
 // Đây là một phần quan trọng để bảo mật và xác thực trong các ứng dụng smart contract trên Cardano.
 
+---
+
 3. Quy trình lock asset
    B1: Kết nối ví và lấy thông tin.
    B2: Set up các dữ liệu cần thiết (owner, age, address, phone) để làm inlinedatum trong giao dịch.
    B3: Đọc smart contract từ file plutus.json và lấy địa chỉ smart contract.
    B4: Tạo và gửi giao dịch lock tài sản vào contract với datum đó.
+
+---
 
 4. Quy trình unlock asset
    B1: Khởi tạo và kết nối ví.
@@ -107,7 +110,6 @@ ScriptContext:
    B5: Lấy lại payment hash (nếu cần cho addSigner hoặc xác thực).
    B6: Tạo và gửi giao dịch unlock:
 
-
 Sử dụng .collectFrom([utxo], redeemer) để lấy UTXO ra khỏi contract.
 Đính kèm script và add signer nếu cần.
 Ký và submit giao dịch lên blockchain.
@@ -119,8 +121,7 @@ scriptRef: là
 VD:Khánh có 1 UTXO, tạo scriptref , ông chi tiêu lại UTXO đó. Ngày xưa thay vì tôi đọc compileCode của Validator.
 Nhưng tôi không đọc từ đó nữa, mà sử dụng UTXO từ scriptref để chi tiêu.
 
-
-```
+---
 
 Các phần chưa rõ:
 
