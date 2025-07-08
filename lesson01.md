@@ -94,7 +94,14 @@ validator hello_world {
 
 ## **3. Hiểu đúng về handling time**
 
-![Mô tả ảnh](URL_hoặc_đường_dẫn_ảnh)
+![Handling Time](https://github.com/robertkhuat/AikenAwesome/blob/main/public/Screenshot%202025-07-08%20225338.png)
+
+Dựa vào ảnh trên, chúng ta có thể hiểu:
+
+- Thời gian trên ví khác với thời gian trên node thực thi
+- Thay đổi tham số Slot ở các HF sau
+
+=> Có nghĩa là chỉ khi nào info (start) phải lớn hơn deadline, cụ thể hơn nữa là ô màu vàng phải qua hẳn thanh dọc deadline thì lúc này, hợp đồng vesting cho phép người thụ hưởng có thể unlock được. Bên cạnh đó, người chủ sở hữu có thể unlock bất cứ lúc nào.
 
 ## **4. Review code offchain: Hello world**
 => Check trong file lock.ts và unlock.ts
