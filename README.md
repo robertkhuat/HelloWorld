@@ -85,8 +85,9 @@ ScriptContext:
 ---
 
 3. Quy trình lock asset
-   B1: Kết nối ví và lấy thông tin.
-   B2: Set up các dữ liệu cần thiết (owner, age, address, phone) để làm inlinedatum trong giao dịch.
+B1: Kết nối ví và lấy thông tin.
+
+B2: Set up các dữ liệu cần thiết (owner, age, address, phone) để làm inlinedatum trong giao dịch.
    B3: Đọc smart contract từ file plutus.json và lấy địa chỉ smart contract.
    B4: Tạo và gửi giao dịch lock tài sản vào contract với datum đó.
 
