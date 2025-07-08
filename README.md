@@ -74,8 +74,7 @@ ScriptContext:
 **Questions and Answers**
 
 2. Payment hash
-   // Ý nghĩa chi tiết cua payment hash:
-   // Addresses.inspect(address) sẽ phân tích (parse) địa chỉ Cardano thành các thành phần chi tiết (payment, stake, v.v).
+   // Ý nghĩa chi tiết cua payment hash:// Addresses.inspect(address) sẽ phân tích (parse) địa chỉ Cardano thành các thành phần chi tiết (payment, stake, v.v).
    // .payment?.hash lấy ra mã băm (hash) của phần payment (khóa thanh toán) trong địa chỉ.
    // Nếu không lấy được payment hash (ví dụ địa chỉ không hợp lệ hoặc không có phần payment), sẽ ném lỗi và dừng chương trình.
    // Tại sao cần payment hash?
